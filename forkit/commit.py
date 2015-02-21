@@ -76,7 +76,7 @@ def _memoize_commit(instance, **kwargs):
 
     return instance
 
-@transaction.commit_on_success
+@transaction.atomic
 def commit_model_object(instance, **kwargs):
     "Recursively commits direct and related objects."
     return _memoize_commit(instance, **kwargs)
